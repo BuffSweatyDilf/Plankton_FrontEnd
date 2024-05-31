@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+  }
+  
+  app-sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+  }
+  
+  router-outlet {
+    flex: 1;
+    padding: 20px;
+  }
+  

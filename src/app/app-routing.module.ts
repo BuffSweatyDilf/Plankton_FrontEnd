@@ -5,13 +5,15 @@ import { GreenhousesComponent } from './greenhouses/greenhouses.component';
 import { PotsComponent } from './pots/pots.component';
 import { PlantsComponent } from './plants/plants.component';
 import { SensorsComponent } from './sensors/sensors.component';
+import { appCanActivate } from './guard/auth.guard';
 
-export const routes: Routes = [
+
+const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'greenhouses', component: GreenhousesComponent },
-  { path: 'pots', component: PotsComponent },
-  { path: 'plants', component: PlantsComponent },
-  { path: 'sensors', component: SensorsComponent },
+  { path: 'greenhouses', component: GreenhousesComponent, canActivate: [appCanActivate] },
+  { path: 'pots', component: PotsComponent, canActivate: [appCanActivate] },
+  { path: 'plants', component: PlantsComponent, canActivate: [appCanActivate] },
+  { path: 'sensors', component: SensorsComponent, canActivate: [appCanActivate] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { AppAuthService } from './service/app.auth.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'Plankton_FrontEnd';
+export class AppComponent implements OnInit {
+
+  constructor(private authService: AppAuthService) { }
+
+  ngOnInit(): void {
+    this.authService.initAuth();
+  }
 }
